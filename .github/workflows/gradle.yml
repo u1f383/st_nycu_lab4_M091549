@@ -27,11 +27,16 @@ jobs:
   test: # job test
     runs-on: ubuntu-latest
     needs: [ build ] # dependency of job, i.e. run after build done
+
     steps:
-    - run: mkdir -p path/to/artifact
-    - run: echo hello > path/to/artifact/world.txt
+    - uses: actions/checkout@v2
+    - name: generate file
+      run: |
+      mkdir -p path/to/artifact
+      echo hello > path/to/artifact/world.txt
+    
     - name: output test report
-    - uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v2
       with:
         name: my-artifact
         path: path/to/artifact/world.txt
