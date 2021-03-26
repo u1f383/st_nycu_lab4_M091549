@@ -32,8 +32,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: generate file
       run: |
-      mkdir -p path/to/artifact
-      echo hello > path/to/artifact/world.txt
+        mkdir -p path/to/artifact
+        echo hello > path/to/artifact/world.txt
     
     - name: output test report
       uses: actions/upload-artifact@v2
