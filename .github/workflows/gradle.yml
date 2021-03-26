@@ -24,11 +24,11 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Cache test report
-      id: testReport
-      uses: actions/cache@v2
+    - uses: actions/cache@v2
+      name: Cache test report
       with:
         path: build/reports/tests/test # build cache
+        key: test-report
 
   test: # job test
     runs-on: ubuntu-latest
