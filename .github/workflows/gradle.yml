@@ -65,5 +65,5 @@ jobs:
         name: buildJar
         path: build/libs/OWO.jar
 
-  release_jar:
-    runs-on: ubuntu-latest
+  # release_jar:
+  #   runs-on: ubuntu-latest
