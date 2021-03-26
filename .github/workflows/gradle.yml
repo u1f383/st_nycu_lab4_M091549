@@ -33,7 +33,7 @@ jobs:
     - name: generate file
       run: |
         mkdir -p path/to/artifact
-        echo hello > path/to/artifact/world.txt
+        ls -al > path/to/artifact/world.txt
     
     - name: output test report
       uses: actions/upload-artifact@v2
