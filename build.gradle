@@ -9,9 +9,23 @@ repositories {
     mavenCentral()
 }
 
+// After update dependencies, it needs to "rm -rf $HOME/.gradle/caches/" to update
+// Then build project again, gradle will automatically download those dependencies
+
+// If you see the "Test not found" msg, you can update
+// "Preferences" -> "Build, Execution..." -> "Build tools" -> "Gradle" -> "Run tests with" to "IntelliJ"
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation (
+            'org.junit.jupiter:junit-jupiter-api:5.8.0-M1',
+            'org.junit.jupiter:junit-jupiter-params:5.8.0-M1',
+            'org.junit.platform:junit-platform-commons:1.8.0-M1'
+    )
+    testRuntimeOnly (
+            'org.junit.jupiter:junit-jupiter-engine',
+            'org.junit.jupiter:junit-jupiter-params:5.8.0-M1'
+    )
+
+    testCompile 'org.junit.jupiter:junit-jupiter:5.8.0-M1'
 }
 
 test {

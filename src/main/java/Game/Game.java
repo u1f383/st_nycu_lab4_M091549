@@ -2,14 +2,15 @@ package Game;
 
 public class Game {
     // ... scissors rock paper scissors rock ... for % 3
-    private static final int rock = 1;
-    private static final int paper = 2;
-    private static final int scissors = 3;
+    private static final int rock = 0;
+    private static final int paper = 1;
+    private static final int scissors = 2;
 
-    public static void checkInput(String in) throws IllegalArgumentException {
+    public static boolean checkInput(String in) throws IllegalArgumentException {
         if (! (("rock".equals(in)) || ("paper".equals(in)) || ("scissors".equals(in))) ) {
             throw new IllegalArgumentException("Bad Choice!");
         }
+        return true;
     }
 
     /**
