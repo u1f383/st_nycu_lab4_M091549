@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 public class Game {
     // ... scissors rock paper scissors rock ... for % 3

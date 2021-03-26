@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import Game.Game;
+import game.Game;
 
 public class Main {
     public static void main(String[] args) {
