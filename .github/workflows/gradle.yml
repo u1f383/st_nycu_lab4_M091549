@@ -24,13 +24,24 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Cache test report
+      id: testReport
+      uses: actions/cache@v2
+      with:
+        path: build/reports/tests/test # build cache
 
   test: # job test
     runs-on: ubuntu-latest
     needs: [ build ] # dependency of job, i.e. run after build done
     steps:
     - uses: actions/checkout@v2
-    - name: Upload test report
+    - uses: actions/cache@v2
+      name: Get test report cache
+      with:
+        path: build/reports/tests/test
+        key: test-report
+
+    - name: Upload test report 
       uses: actions/upload-artifact@v2
       with:
         name: testReport
@@ -53,3 +64,6 @@ jobs:
       with:
         name: buildJar
         path: build/libs/OWO.jar
+
+  release_jar:
+    runs-on: ubuntu-latest
