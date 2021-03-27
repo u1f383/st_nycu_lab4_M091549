@@ -31,7 +31,7 @@ jobs:
       name: Cache jar file
       with:
         path: build/libs/st_nycu_lab4-1.0-SNAPSHOT.jar
-        name: build-jar
+        key: build-jar
 
   test: # job test
     runs-on: ubuntu-latest
@@ -62,8 +62,8 @@ jobs:
     - name: Upload jar file
       uses: actions/upload-artifact@v2
       with:
-        name: buildJar
         path: build/libs/st_nycu_lab4-1.0-SNAPSHOT.jar
+        key: buildJar
 
   Release:
     runs-on: ubuntu-latest
@@ -73,8 +73,8 @@ jobs:
     - name: Get jar file
       uses: actions/upload-artifact@v2
       with:
-        name: buildJar
         path: build/libs/st_nycu_lab4-1.0-SNAPSHOT.jar
+        key: buildJar
     - name: release jar file
       uses: softprops/action-gh-release@v1
       # if: startsWith(github.ref, 'refs/tags/')
