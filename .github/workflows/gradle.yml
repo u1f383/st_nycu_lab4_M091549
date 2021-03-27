@@ -5,10 +5,7 @@
 name: OWO
 
 # events which can trigger action 
-on:
-  push: # when push commit
-    tags:
-      - '*'
+on: push # when push commit
     # branches: [ main ] # specify the main branch
 
 jobs:
