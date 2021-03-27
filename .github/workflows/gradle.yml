@@ -62,8 +62,8 @@ jobs:
     - name: Upload jar file
       uses: actions/upload-artifact@v2
       with:
+        name: buildJar
         path: build/libs/st_nycu_lab4-1.0-SNAPSHOT.jar
-        key: buildJar
 
   Release:
     runs-on: ubuntu-latest
