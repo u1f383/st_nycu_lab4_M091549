@@ -74,7 +74,7 @@ jobs:
       name: Get jar file  
       with:
         path: build/libs/st_nycu_lab4-1.0-SNAPSHOT.jar
-        key: buildJar
+        key: build-jar
     - name: release jar file
       uses: softprops/action-gh-release@v1
       with:
