@@ -68,7 +68,7 @@ jobs:
         path: build/libs/st_nycu_lab4-1.0-SNAPSHOT.jar
 
   Release:
-    if: ${{ github.event_name == 'release' }}
+    if: github.event_name == 'release'
     runs-on: ubuntu-latest
     - uses: actions/checkout@v2
     - name: Get jar file
