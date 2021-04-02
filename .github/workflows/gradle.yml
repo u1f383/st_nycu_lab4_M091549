@@ -78,7 +78,7 @@ jobs:
       name: Upload jar file
       with:
         name: buildJar
-        path: build/libs/st_nycu_lab4-1.0-SNAPSHOT.jar
+        path: build/libs/st_nycu_lab4-*.jar
 
   Release:
     runs-on: ubuntu-latest
@@ -90,15 +90,9 @@ jobs:
       name: Download jar file
       with:
         name: buildJar
-        path: dump/
-    - name: change name
-      working-directory: dump/
-      run: |
-        ls -al
-        mv buildJar ${{ needs.Assemble.outputs.jar_filename }}
     - name: release jar file
       uses: softprops/action-gh-release@v1
       with:
-        files: 'dump/st_nycu_lab4*.jar'
+        files: ${{ needs.Assemble.outputs.jar_filename }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
