@@ -90,12 +90,15 @@ jobs:
       name: Download jar file
       with:
         name: buildJar
-        path: .
+        path: dump/
     - name: change name
-      run: mv buildJar ${{ needs.Assemble.outputs.jar_filename }}
+      working-directory: dump/
+      run: |
+        ls -al
+        mv buildJar ${{ needs.Assemble.outputs.jar_filename }}
     - name: release jar file
       uses: softprops/action-gh-release@v1
       with:
-        files: './st_nycu_lab4*.jar'
+        files: 'dump/st_nycu_lab4*.jar'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
