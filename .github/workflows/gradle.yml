@@ -90,6 +90,7 @@ jobs:
       name: Download jar file
       with:
         name: buildJar
+        path: .
     - name: change name
       run: mv buildJar ${{ needs.Assemble.outputs.jar_filename }}
     - name: release jar file
