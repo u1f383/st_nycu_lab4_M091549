@@ -95,7 +95,6 @@ jobs:
     - name: release jar file
       uses: softprops/action-gh-release@v1
       with:
-        files: |
-          ${{ Assemble.steps.get_filename.outputs.filename }}
+        files: './st_nycu_lab4*.jar'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
