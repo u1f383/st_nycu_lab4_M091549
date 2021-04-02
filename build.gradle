@@ -2,7 +2,6 @@ plugins {
     id 'java'
 }
 
-project_name 'st_nycu_lab-4'
 group 'org.example'
 version '1.0-SNAPSHOT'
 
