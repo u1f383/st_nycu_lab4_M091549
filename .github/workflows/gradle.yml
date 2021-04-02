@@ -91,7 +91,7 @@ jobs:
       with:
         name: buildJar
     - name: change name
-      run: mv buildJar ${{ Assemble.steps.get_filename.outputs.filename }}
+      run: mv buildJar ${{ needs.Assemble.steps.get_filename.outputs.filename }}
     - name: release jar file
       uses: softprops/action-gh-release@v1
       with:
