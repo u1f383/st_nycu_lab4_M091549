@@ -91,11 +91,11 @@ jobs:
       with:
         name: buildJar
     - name: change name
-      run: mv buildJar ${{ steps.get_filename.outputs.filename }}
+      run: mv buildJar ${{ Assemble.steps.get_filename.outputs.filename }}
     - name: release jar file
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          ${{ steps.get_filename.outputs.filename }}
+          ${{ Assemble.steps.get_filename.outputs.filename }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
