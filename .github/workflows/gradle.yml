@@ -73,7 +73,7 @@ jobs:
       run: ./gradlew assemble
     - id: get_filename
       run: |
-        echo ::set-output name=filename::st_nycu_lab4-$(cat build.gradle | grep -E "version" | sed 's/version[ \t\n]*//g' | tr -d \').jar"
+        echo ::set-output name=filename::st_nycu_lab4-$(cat build.gradle | grep -E "version" | sed 's/version[ \t\n]*//g' | tr -d \').jar
     - uses: actions/upload-artifact@v2
       name: Upload jar file
       with:
